@@ -14,24 +14,38 @@
         body, html {
             background: #000;
             display: flex;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;        /* 최소 높이 */
-            overflow: auto;           /* 이미지가 크면 스크롤 가능 */
+            align-items: flex-start;
+            min-height: 100vh;
+            overflow: auto;
         }
         
         .main-image {
-            width: auto;              /* 원본 너비 */
-            height: auto;             /* 원본 높이 */
-            max-width: none;          /* 제한 해제 */
             cursor: pointer;
             display: block;
         }
         
+        /* PC 버전 - 원본 크기 */
+        .main-image {
+            width: auto;
+            height: auto;
+            max-width: none;
+        }
+
+        /* 모바일 버전 - 화면에 맞춤 */
+        @media (max-width: 768px) {
+            .main-image {
+                width: 100% !important;     /* 모바일에서는 가로 100% */
+                height: auto;
+                max-width: 100% !important;
+            }
+        }
+
         .main-image:hover {
             opacity: 0.95;
         }
     </style>
+</head>
 </head>
 <body>
 
